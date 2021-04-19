@@ -1,0 +1,39 @@
+.doctor-form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dr-form-inputs {
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.dr-input {
+    margin: 10px;
+    width: 47%;
+    margin-bottom: 50px !important;
+}
+
+.margin-bottom {
+    margin-bottom: 50px;
+}
+
+.submit-button {
+    height: 50px;
+}
+
+.MuiButton-contained{
+    background-image: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)' !important;
+}
+
+@media only screen and (max-width: 900px) {
+    .dr-input {
+        width: 97%;
+    }
+  }

@@ -1,0 +1,17 @@
+.brand-logo {
+
+    font-family: 'Architects Daughter';
+    font-size: 45px;
+    margin-top: 20px;
+}
+
+
+.nav-icons{
+    font-size: 25px;
+}
+
+
+.active .MuiListItem-button{
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%) !important;
+}
+

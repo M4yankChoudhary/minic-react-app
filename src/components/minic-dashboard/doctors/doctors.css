@@ -1,0 +1,40 @@
+.makeStyles-content-8 {
+    overflow-x: hidden;
+}
+
+.MuiCardContent-root {
+    width: 250px;
+}
+
+.doctor-cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.doctor-table{
+    margin-top: 20px;
+    overflow-x: scroll;
+}
+
+.inner-heading {
+    text-align: left;
+}
+
+
+.dr-appbar ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dr-appbar ul li{
+    display: inline;
+    font-size: 30px;
+}
+
+.display-inline-block {
+    display: inline-block;
+    margin-bottom: 2px;
+}
