@@ -1,23 +1,19 @@
 // React
 import React from 'react';
-import {Link, NavLink, Route, Switch, useLocation} from 'react-router-dom';
+import {NavLink, Route, Switch} from 'react-router-dom';
 
 // Material UI
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
@@ -35,6 +31,7 @@ import { faUserMd, faHandHoldingMedical} from '@fortawesome/free-solid-svg-icons
 
 const drawerWidth = 200;
 
+// styling for material ui components
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -82,10 +79,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
 
 function Dashboard(props) {
 

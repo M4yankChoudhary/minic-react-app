@@ -1,17 +1,21 @@
-import './doctors.css';
+// React
 import React from 'react';
 import { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+
+// Local Imports
+import './doctors.css';
 import DoctorTable from './tables';
 import AddDoctor from './forms/addDoctor';
+
+// Material UI
+import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
-import DeleteIcon from '@material-ui/icons/Delete';
-import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { BrowserRouter, Link, Route, Switch, useParams, useLocation, useRouteMatch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 
+// styling for material ui components
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -23,7 +27,7 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
-  backgroundBlueGradient:{
+  backgroundBlueGradient: {
     backgroundImage: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)',
     color: 'white',
   }
@@ -31,36 +35,22 @@ const useStyles = makeStyles({
 
 
 const Doctors = () => {
-  const classes = useStyles();
-  const location = useLocation();
-  console.log(location)
 
+  const classes = useStyles();
   let { path, url } = useRouteMatch();
 
+  // to hide/unhide the add button 
   const [showButton, setShowButton] = useState(true);
   const [showAddButton, setShowAddButton] = useState(true);
-
+  
   const setHide = () => {
     setShowButton(false)
-    // setShowAddButton(false)
     setShowAddButton(false);
-    // h();
   }
   const unHide = () => {
     setShowButton(true)
-    // setShowAddButton(true)
     setShowAddButton(true);
-    // f();
   }
-
-
-  // const h = () => {
-    
-  // }
-  // const f = () => {
-    
-  // }
-
 
   return (
     <div>
@@ -71,29 +61,22 @@ const Doctors = () => {
               Doctors
             </li>) : (
                 <li>
-                  <Link to={`${url}/`} onClick={unHide}><ArrowBackIcon /></Link> <h6 class="display-inline-block">Add Doctor</h6>
+                  <Link to={`${url}/`} onClick={unHide}><ArrowBackIcon /></Link> <h6 className="display-inline-block">Add Doctor</h6>
                 </li>
               )}
 
             <li>
               {
-
                 showAddButton ? (
-
-                  <Tooltip title="Add"  aria-label="add">
-                    <Link to={`${url}/add`} onClick={setHide}><Fab className={classes.absolute, classes.backgroundBlueGradient}>
+                  <Tooltip title="Add" aria-label="add">
+                    <Link to={`${url}/add`} onClick={setHide}><Fab className={classes.backgroundBlueGradient}>
                       <AddIcon />
                     </Fab>
                     </Link>
-                  </Tooltip>)
-                  :
-                  (
-                    <h1></h1>
-                  )
+                  </Tooltip>) : (<></>)
               }
             </li>
           </ul>
-
         </div>
         <Switch>
           <Route exact path={path}>
@@ -103,7 +86,6 @@ const Doctors = () => {
             <AddDoctor />
           </Route>
         </Switch>
-
       </BrowserRouter>
     </div>
   );
