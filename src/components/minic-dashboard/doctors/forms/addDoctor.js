@@ -53,7 +53,6 @@ class AddDoctor extends React.Component {
       .then(
         data => {
           if (data) {
-            alert("Data Added successfully!")
             window.location.replace('/doctor');
           };
         }

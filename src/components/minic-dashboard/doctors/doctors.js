@@ -6,6 +6,7 @@ import { useState } from 'react';
 import './doctors.css';
 import DoctorTable from './tables';
 import AddDoctor from './forms/addDoctor';
+import DoctorDetails from './details/doctorDetails'
 
 // Material UI
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,7 +14,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { BrowserRouter, Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch, useRouteMatch, Redirect } from 'react-router-dom';
 
 // styling for material ui components
 const useStyles = makeStyles({
@@ -42,7 +43,7 @@ const Doctors = () => {
   // to hide/unhide the add button 
   const [showButton, setShowButton] = useState(true);
   const [showAddButton, setShowAddButton] = useState(true);
-  
+
   const setHide = () => {
     setShowButton(false)
     setShowAddButton(false);
@@ -61,7 +62,8 @@ const Doctors = () => {
               Doctors
             </li>) : (
                 <li>
-                  <Link to={`${url}/`} onClick={unHide}><ArrowBackIcon /></Link> <h6 className="display-inline-block">Add Doctor</h6>
+                  <Link to={`${url}`} onClick={unHide}><ArrowBackIcon /></Link>
+                  <h6 className="display-inline-block">Add Doctor</h6>
                 </li>
               )}
 
@@ -83,9 +85,14 @@ const Doctors = () => {
             <DoctorTable />
           </Route>
           <Route exact path={`${path}/add`}>
+          
             <AddDoctor />
           </Route>
+          <Route exact path={`${path}/:id`}>
+          <DoctorDetails/>
+          </Route>
         </Switch>
+        
       </BrowserRouter>
     </div>
   );
