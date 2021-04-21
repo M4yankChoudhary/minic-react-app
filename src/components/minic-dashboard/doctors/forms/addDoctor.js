@@ -10,6 +10,10 @@ import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+import Tooltip from '@material-ui/core/Tooltip';
+import { Link } from 'react-router-dom';
+import { ArrowBack } from '@material-ui/icons';
 
 const styles = {
   root: {
@@ -21,6 +25,10 @@ const styles = {
     height: 48,
     padding: '0 30px',
   },
+  backgroundBlueGradient: {
+    backgroundImage: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)',
+    color: 'white',
+  }
 };
 
 
@@ -71,10 +79,29 @@ class AddDoctor extends React.Component {
     this.setState({ doctor: doc })
   }
 
+ 
+
   render() {
     // decalre variables here
     const { classes } = this.props;
     return (
+      <div>
+      <div className="dr-appbar">
+      <ul>
+        <li>
+         Add doctor
+        </li>
+        <li>
+          <Tooltip title="back" aria-label="back">
+            <Link to="/doctor"><Fab className={classes.backgroundBlueGradient}>
+              <ArrowBack />
+            </Fab>
+            </Link>
+          </Tooltip>
+        </li>
+      </ul>
+    </div>
+    
       <div className="doctor-form">
         <div>
           <Card>
@@ -85,8 +112,8 @@ class AddDoctor extends React.Component {
                   <TextField onChange={this.inputChanged} name="dob" className="dr-input" type="date" id="outlined-basic" label="Date of birth" variant="outlined" InputLabelProps={{ shrink: true, }} required />
                   <TextField onChange={this.inputChanged} name="specialization" className="dr-input" id="outlined-basic" label="Specialization" variant="outlined" required />
                   <TextField onChange={this.inputChanged} name="experience" className="dr-input" id="outlined-basic" label="Experience" variant="outlined" required />
-                  <TextField onChange={this.inputChanged} type="tel" pattern="\d+" name="age" className="dr-input" id="outlined-basic" label="Age" variant="outlined" required />
-                  <TextField onChange={this.inputChanged} type="number" name="phoneNumber" className="dr-input" id="outlined-basic" label="Phone" variant="outlined" required />
+                  <TextField onChange={this.inputChanged} type="number" name="age" className="dr-input" id="outlined-basic" label="Age" variant="outlined" required />
+                  <TextField onChange={this.inputChanged} type="tel" pattern="\d+" name="phoneNumber" className="dr-input" id="outlined-basic" label="Phone" variant="outlined" required />
                   <TextField onChange={this.inputChanged} name="email" className="dr-input" id="outlined-basic" label="Email" variant="outlined" required />
                   <TextField onChange={this.inputChanged} name="gender" className="dr-input" id="outlined-basic" label="Gender" variant="outlined" />
                   <TextField onChange={this.inputChanged} name="doctorDetails" className="dr-input" id="outlined-basic" label="Doctor details" variant="outlined" required />
@@ -99,6 +126,7 @@ class AddDoctor extends React.Component {
             </div>
           </Card>
         </div>
+      </div>
       </div>
     );
   }
